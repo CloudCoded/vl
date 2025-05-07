@@ -1,0 +1,32 @@
+const navigationRoutes = {
+  login: "/",
+  dashboard: "/dashboard/",
+  inventoryUpload: "/inventory-upload/",
+  vendors: "/vendors/",
+  products: {
+    blood: "/products/blood/",
+    oxygen: "/products/oxygen/",
+    consumables: "/products/consumables/",
+    equipments: "/products/equipments/",
+  },
+  vendorPaymentsTerms: "/vendor-payments-terms/",
+  vendorPayments: "/vendor-payments/",
+  qaTracker: "/qa-tracker/",
+  vendorInvoice: "/vendor-invoice/",
+  productSafety: "/product-safety/",
+  failedOrders: "/failed-orders/",
+  vendorDeclinedOrders: "/vendor-declined-orders/",
+  declinedQuotations: "/declined-quotations/",
+  cancelledOrders: "/cancelled-orders/",
+  pricing: "/pricing/",
+  invoice: "/invoice/",
+  creditManagement: "/credit-management/",
+  searchByOrderId: "/search-by-order-id/",
+  discountsAndOffers: "/discounts-and-offers/",
+  customerReconciliation: "/customer-reconciliation/",
+  vendorReconciliation: "/vendor-reconciliation/",
+  analytics: "/analytics/",
+  nervePartnerRequests: "/nerve-partner-requests/",
+};
+
+export default Object.freeze(navigationRoutes);
