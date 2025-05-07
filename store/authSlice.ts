@@ -1,9 +1,9 @@
 // src/store/features/counterSlice.ts
-import { FLiteUser, FLiteUserState } from "@/types";
+import { VLiteUser, VLiteUserState } from "@/types";
 import { makeid } from "@/utils";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: FLiteUserState = {
+const initialState: VLiteUserState = {
   id: makeid(),
   timestamp: Date.now(),
   userData: null,
@@ -13,7 +13,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<FLiteUser>) => {
+    setUser: (state, action: PayloadAction<VLiteUser>) => {
       state.userData = action.payload;
     },
     logoutUser: (state) => {
