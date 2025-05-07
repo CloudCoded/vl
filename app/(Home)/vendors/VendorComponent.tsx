@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@heroui/button";
 import React, { useState } from "react";
+import { useSearch } from "@/hooks/useSearch";
 
 import AppModal from "@/components/AppModal";
 import { AppTable } from "@/components/table/data-table";
@@ -62,9 +63,19 @@ const initialVendorData: VendorItem[] = [
   },
 ];
 
+const VENDOR_SEARCH_FIELDS: (keyof VendorItem)[] = [
+  "name",
+  "product_type",
+  "email",
+  "contact_name",
+  "phone",
+  "address",
+];
+
 export default function VendorComponent() {
-  const [VendorData, setVendorData] = useState<VendorItem[]>(initialVendorData);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const VendorData = useSearch<VendorItem>(initialVendorData, VENDOR_SEARCH_FIELDS);
 
   function handleAddVendor() {
     setIsModalOpen(true);
@@ -76,7 +87,7 @@ export default function VendorComponent() {
 
   function handleFormSubmit(data: VendorFormData) {
     const newVendorItem: VendorItem = {
-      id: VendorData.length + 1,
+      id: initialVendorData.length + 1,
       name: data.name,
       product_type: data.product_type,
       stock_update: data.stock_update,
@@ -85,7 +96,6 @@ export default function VendorComponent() {
       phone: `+234${data.phone}`,
       address: data.address,
     };
-    setVendorData((prevData) => [...prevData, newVendorItem]);
     setIsModalOpen(false);
   }
 
